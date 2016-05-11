@@ -12,7 +12,7 @@ var Reload = React.createClass({
   },
   _onPressButton: function(){
     var _this = this;
-    fetch(' http://www.colourlovers.com/api/palettes/random?format=json', {
+    fetch('http://www.colourlovers.com/api/palettes/random?format=json', {
         method: 'get'
     }).then(function(response) {
         var colorLover = JSON.parse(response._bodyInit)[0];

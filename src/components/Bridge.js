@@ -45,9 +45,9 @@ var Bridge = React.createClass({
     var _this = this;
     bridge.createUser('HueLovers', function(data) {
         // save ip and user
-       AsyncStorage.setItem('ip', this.state.brideIp).then((value) => { 
+       AsyncStorage.setItem('ip', _this.state.brideIp).then((value) => { 
          AsyncStorage.setItem('user', data[0].success.username).then((value) => { 
-           this.props.onPress();
+           _this.props.onPress();
          });           
        });         
     },
