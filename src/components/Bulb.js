@@ -12,7 +12,13 @@ var Bulb = React.createClass({
       
   },
   handleClick: function(){
-    this.state.opacity < 1 ? this.setState({opacity:1}) : this.setState({opacity:0.5}); 
+    if (this.state.opacity < 1){
+      this.setState({opacity:1});
+      this.props.turnLight(this.props.index, true);
+    } else {
+      this.setState({opacity:0.5});
+      this.props.turnLight(this.props.index, false);
+    }
   },
   animate(delay, color) {
    var _this = this;
