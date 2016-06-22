@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import ReactNativeView from './App';
 import Starred from './Starred';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 var ReactNativeHue = React.createClass({
   getInitialState: function() {
@@ -38,13 +38,13 @@ var ReactNativeHue = React.createClass({
       <View style={[styles.layout]}>
         <View style={[styles.header]}>
           <View style={[styles.headerIcon]}>
-            <Icon name="lightbulb-o" size={60} color="#f1c40f" />
+            <Icon name="md-bulb" size={60} color="#f1c40f" />
           </View>
         </View>
-        <Icon.Button style={[styles.menuItem]} name="home"  color='#455A64' backgroundColor="#fff" onPress={this.goHome} borderRadius={0}>
+        <Icon.Button style={[styles.menuItem]} name="md-home"  color='#455A64' backgroundColor="#fff" onPress={this.goHome} borderRadius={0}>
           <Text style={[styles.textItem]}>Home</Text>
         </Icon.Button>
-        <Icon.Button style={[styles.menuItem]} name="star"  color='#455A64' backgroundColor="#fff" onPress={this.goFavoris} borderRadius={0}>
+        <Icon.Button style={[styles.menuItem]} name="md-star"  color='#455A64' backgroundColor="#fff" onPress={this.goFavoris} borderRadius={0}>
           <Text style={[styles.textItem]}>Starred</Text>
         </Icon.Button>
       </View>
@@ -55,7 +55,7 @@ var ReactNativeHue = React.createClass({
         drawerWidth={300}
         drawerPosition={DrawerLayoutAndroid.positions.Left}
         renderNavigationView={() => navigationView}>
-        {this.state.currentView == 'home' ? <ReactNativeView paletteStar={this.state.paletteStar} openMenu={this.openDrawer}/> : <Starred selectStar={this.selectStar} /> }
+        {this.state.currentView == 'home' ? <ReactNativeView paletteStar={this.state.paletteStar} /> : <Starred selectStar={this.selectStar} /> }
       </DrawerLayoutAndroid>
     );
   }

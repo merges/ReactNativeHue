@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, TouchableHighlight, Text, AppRegistry, Image, Animated, Easing, AsyncStorage } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Ionicons';
 import _ from 'lodash';
 
 var TIMES = 400;
@@ -60,7 +60,7 @@ var Star = React.createClass({
   },
   render: function() {
     return (
-      <Icon.Button style={[styles.startIcon]} name="star" size={40} color={this.state.currentFavColor} backgroundColor={"#F8F8F8"}  onPress={this._onPressButton}>
+      <Icon.Button style={[styles.startIcon]} name="ios-star" size={40} color={this.state.currentFavColor} backgroundColor={"#F8F8F8"}  onPress={this._onPressButton}>
       </Icon.Button>
     );
   }

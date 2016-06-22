@@ -31,6 +31,7 @@ var ReactNativeView = React.createClass({
             this.changePalette(this.props.paletteStar);
           } else {
             this.setState({palette: JSON.parse(value)});
+            this.changePalette(this.state.palette);
           }
         } else {
           this.setState({palette: {name:'Giant Goldfish', creator:'By manekineko', colors: ['#69D2E7','#A7DBD8','#E0E4CC','#F38630','#FA6900']}});

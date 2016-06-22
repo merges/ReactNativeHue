@@ -12,6 +12,7 @@ var Reload = React.createClass({
   },
   _onPressButton: function(){
     var _this = this;
+    _this._animateLoad();
     fetch('http://www.colourlovers.com/api/palettes/random?format=json', {
         method: 'get'
     }).then(function(response) {
@@ -32,23 +33,29 @@ var Reload = React.createClass({
   },
   _animate() {
     this.state.angle.setValue(0);
-
-   Animated.sequence([
-     Animated.timing(this.state.angle, {
-        toValue: -60,
-        duration: 300,
-        easing: Easing.linear
-     }),
-
-     Animated.timing(this.state.angle, {
+    Animated.sequence([
+      Animated.timing(this.state.angle, {
         toValue: 360,
-        duration: 500,
+        duration: 1200,
         easing: Easing.linear
-     })
-   ]).start();
+      })
+    ]).start();
 
   },
+  _animateLoad() {
+    this.state.angle.setValue(0);
 
+    Animated.sequence([
+      Animated.timing(this.state.angle, {
+        toValue: -800,
+        duration: 3000,
+        easing: Easing.linear
+      }),
+    ]).start();
+  },
+  componentWillReceiveProps() {
+    this._animate(); 
+  },
   render: function() {
     return (
       <TouchableHighlight style={styles.buttonLogo} onPress={this._onPressButton} activeOpacity={0.5} underlayColor={'#fff'}>

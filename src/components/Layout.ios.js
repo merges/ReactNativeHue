@@ -6,11 +6,11 @@ import {
   Text,
   TouchableHighlight,
   Modal,
-  DrawerLayoutAndroid
+  TabBarIOS
 } from 'react-native';
 import ReactNativeView from './App';
 import Starred from './Starred';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 var ReactNativeHue = React.createClass({
   getInitialState: function() {
@@ -18,45 +18,41 @@ var ReactNativeHue = React.createClass({
       currentView: 'home'
     };
   },
-  openDrawer: function(palette) {
-    this.refs['DRAWER_REF'].openDrawer();
-  },
-  goHome: function() {
-    this.setState({currentView:'home'});
-    this.refs['DRAWER_REF'].closeDrawer();
-  },
-  goFavoris: function() {
-    this.setState({currentView:'favoris'});
-    this.refs['DRAWER_REF'].closeDrawer();
-  },
   selectStar: function(paletteStar) {
     this.setState({paletteStar: paletteStar});
     this.setState({currentView:'home'});
   },
   render: function() {
-    var navigationView = (
-      <View style={[styles.layout]}>
-        <View style={[styles.header]}>
-          <View style={[styles.headerIcon]}>
-            <Icon name="lightbulb-o" size={60} color="#f1c40f" />
-          </View>
-        </View>
-        <Icon.Button style={[styles.menuItem]} name="home"  color='#455A64' backgroundColor="#fff" onPress={this.goHome} borderRadius={0}>
-          <Text style={[styles.textItem]}>Home</Text>
-        </Icon.Button>
-        <Icon.Button style={[styles.menuItem]} name="star"  color='#455A64' backgroundColor="#fff" onPress={this.goFavoris} borderRadius={0}>
-          <Text style={[styles.textItem]}>Starred</Text>
-        </Icon.Button>
-      </View>
-    );
     return (
-      <DrawerLayoutAndroid
-        ref={'DRAWER_REF'}
-        drawerWidth={300}
-        drawerPosition={DrawerLayoutAndroid.positions.Left}
-        renderNavigationView={() => navigationView}>
-        {this.state.currentView == 'home' ? <ReactNativeView paletteStar={this.state.paletteStar} openMenu={this.openDrawer}/> : <Starred selectStar={this.selectStar} /> }
-      </DrawerLayoutAndroid>
+      <TabBarIOS
+        unselectedTintColor="yellow"
+        tintColor="white"
+        barTintColor="darkslateblue">
+        <Icon.TabBarItemIOS
+          title="Home"
+          iconName="ios-home-outline"
+          selectedIconName="ios-home"
+          selected={this.state.selectedTab === 'home'}
+          onPress={() => {
+            this.setState({
+              currentView: 'home',
+            });
+          }}>
+          <ReactNativeView paletteStar={this.state.paletteStar}/>
+        </Icon.TabBarItemIOS>
+        <Icon.TabBarItemIOS
+          title="Starred"
+          iconName="ios-star-outline"
+          selectedIconName="ios-star"
+          selected={this.state.currentView === 'favoris'}
+          onPress={() => {
+            this.setState({
+              currentView: 'favoris'
+            });
+          }}>
+           <Starred selectStar={this.selectStar} />
+        </Icon.TabBarItemIOS>
+      </TabBarIOS>
     );
   }
 });
