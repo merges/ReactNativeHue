@@ -12,19 +12,19 @@ var Palette = React.createClass({
   render: function() {
     return (
       <View style={styles.palette}>
-        <TouchableHighlight style={{backgroundColor: this.props.colors[0], width:40, height: 5}} underlayColor='#cdcdcd'>
+        <TouchableHighlight style={{backgroundColor: this.props.colors[0], width:35, height: 5}} underlayColor='#cdcdcd'>
          <Text></Text>
         </TouchableHighlight>
-        <TouchableHighlight style={{backgroundColor: this.props.colors[1], width:40, height: 5}} underlayColor='#cdcdcd'>
+        <TouchableHighlight style={{backgroundColor: this.props.colors[1], width:35, height: 5}} underlayColor='#cdcdcd'>
          <Text></Text>
         </TouchableHighlight>
-        <TouchableHighlight style={{backgroundColor: this.props.colors[2], width:40, height: 5}} underlayColor='#cdcdcd'>
+        <TouchableHighlight style={{backgroundColor: this.props.colors[2], width:35, height: 5}} underlayColor='#cdcdcd'>
          <Text></Text>
         </TouchableHighlight>
-        <TouchableHighlight style={{backgroundColor: this.props.colors[3], width:40, height: 5}} underlayColor='#cdcdcd'>
+        <TouchableHighlight style={{backgroundColor: this.props.colors[3], width:35, height: 5}} underlayColor='#cdcdcd'>
          <Text></Text>
         </TouchableHighlight>
-        <TouchableHighlight style={{backgroundColor: this.props.colors[4], width:40, height: 5}} underlayColor='#cdcdcd'>
+        <TouchableHighlight style={{backgroundColor: this.props.colors[4], width:35, height: 5}} underlayColor='#cdcdcd'>
          <Text></Text>
         </TouchableHighlight>
       </View>

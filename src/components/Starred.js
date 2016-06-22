@@ -19,7 +19,12 @@ var Starred = React.createClass({
   componentDidMount: function() {
     this._refreshData();
   },
+  loadStar: function() {
+    this._refreshData();
+  
+},
   _refreshData: function() {
+    let stars = [];
     AsyncStorage.getItem('stars').then((value) => {
       if (value) {
         stars = JSON.parse(value);

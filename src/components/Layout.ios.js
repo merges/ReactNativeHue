@@ -21,24 +21,26 @@ var ReactNativeHue = React.createClass({
   selectStar: function(paletteStar) {
     this.setState({paletteStar: paletteStar});
     this.setState({currentView:'home'});
+    this.refs['HOME'].loadStar();
   },
   render: function() {
     return (
       <TabBarIOS
         unselectedTintColor="yellow"
         tintColor="white"
-        barTintColor="darkslateblue">
+        barTintColor="#34495e"
+        >
         <Icon.TabBarItemIOS
           title="Home"
           iconName="ios-home-outline"
           selectedIconName="ios-home"
-          selected={this.state.selectedTab === 'home'}
+          selected={this.state.currentView === 'home'}
           onPress={() => {
             this.setState({
               currentView: 'home',
             });
           }}>
-          <ReactNativeView paletteStar={this.state.paletteStar}/>
+          <ReactNativeView ref={'HOME'} paletteStar={this.state.paletteStar}/>
         </Icon.TabBarItemIOS>
         <Icon.TabBarItemIOS
           title="Starred"
@@ -49,8 +51,9 @@ var ReactNativeHue = React.createClass({
             this.setState({
               currentView: 'favoris'
             });
+            this.refs['STARRED'].loadStar();
           }}>
-          <Starred selectStar={this.selectStar} />
+          <Starred ref={'STARRED'} selectStar={this.selectStar} />
         </Icon.TabBarItemIOS>
       </TabBarIOS>
     );

@@ -53,9 +53,6 @@ var Reload = React.createClass({
       }),
     ]).start();
   },
-  componentWillReceiveProps() {
-    this._animate(); 
-  },
   render: function() {
     return (
       <TouchableHighlight style={styles.buttonLogo} onPress={this._onPressButton} activeOpacity={0.5} underlayColor={'#fff'}>

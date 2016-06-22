@@ -39,7 +39,7 @@ var ReactNativeView = React.createClass({
     }).done();
   },
   componentDidMount: function(){
-    // this.connectToBridge();
+    this.connectToBridge();
   },
   changePalette: function(palette) {
        this.refs.BULB0.animate(0, palette.colors[0]);
@@ -84,6 +84,13 @@ var ReactNativeView = React.createClass({
       this.state.user.setLightState(index + 1, { on: state}, function(data) {console.log(data)}, function(err) {console.log(err)});
     }
   },
+  loadStar(){
+    if (this.props.paletteStar) {
+      console.log(this.props.paletteStar)
+      this.setState({palette: this.props.paletteStar});
+      this.changePalette(this.props.paletteStar);
+  }
+},
   render: function() {
     return (
      <View style={styles.body}>
@@ -140,7 +147,8 @@ var styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
-    padding: 60
+    padding: 60,
+    paddingBottom: 40    
   },
   body: {
     backgroundColor: '#F8F8F8',
@@ -149,7 +157,7 @@ var styles = StyleSheet.create({
   },
   footer: {
     alignItems: 'center',
-    paddingBottom: 40
+    paddingBottom: 100
   },
    container: {
     flex: 1,
