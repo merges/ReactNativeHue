@@ -50,7 +50,7 @@ var ReactNativeHue = React.createClass({
               currentView: 'favoris'
             });
           }}>
-           <Starred selectStar={this.selectStar} />
+          <Starred selectStar={this.selectStar} />
         </Icon.TabBarItemIOS>
       </TabBarIOS>
     );
