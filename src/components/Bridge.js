@@ -2,8 +2,8 @@
 
 import React from 'react';
 import ReactNative from 'react-native';
-import hueApi from './jshue'; 
- 
+import hueApi from './jshue';
+
 var {
   Modal,
   StyleSheet,
@@ -22,34 +22,34 @@ var Bridge = React.createClass({
     };
   },
   componentDidMount: function() {
-    this.searchBridge();  
+    this.searchBridge();
   },
   searchBridge: function() {
     const _this = this;
     this.state.hue.discover(
-      function(bridges) { 
+      function(bridges) {
           if(bridges.length === 0) {
-              _this.setState({found: false}); 
-          } 
+              _this.setState({found: false});
+          }
           else {
-              _this.setState({found: true, brideIp: bridges[0].internalipaddress}); 
+              _this.setState({found: true, brideIp: bridges[0].internalipaddress});
           }
       },
       function(error) {
           console.log(error);
       }
-    );     
+    );
   },
-  connectBridge: function(){
+  connectBridge: function() {
     var bridge = this.state.hue.bridge(this.state.brideIp);
     var _this = this;
     bridge.createUser('HueLovers', function(data) {
         // save ip and user
-       AsyncStorage.setItem('ip', _this.state.brideIp).then((value) => { 
-         AsyncStorage.setItem('user', data[0].success.username).then((value) => { 
+       AsyncStorage.setItem('ip', _this.state.brideIp).then((value) => {
+         AsyncStorage.setItem('user', data[0].success.username).then((value) => {
            _this.props.onPress();
-         });           
-       });         
+         });
+       });
     },
     function(error) {
         console.log(error);
@@ -62,11 +62,11 @@ var Bridge = React.createClass({
         <TouchableHighlight
           onPress={this.state.found ? this.connectBridge : this.searchBridge}
           style={[styles.button, styles.modalButton]}
-          underlayColor="#a9d9d4"> 
+          underlayColor="#a9d9d4">
           <Text style={[styles.buttonText]}> {this.state.found ? 'Connect'  : 'Search again' }</Text>
-        </TouchableHighlight> 
+        </TouchableHighlight>
       </View>
-    ); 
+    );
   }
 });
 
@@ -75,9 +75,9 @@ module.exports = Bridge;
 
 var styles = StyleSheet.create({
   button: {
-    padding: 4, 
+    padding: 4,
     borderRadius: 5,
-    flex: 1, 
+    flex: 1,
     height: 44,
     alignSelf: 'stretch',
     justifyContent: 'center',
@@ -89,7 +89,7 @@ var styles = StyleSheet.create({
     fontSize: 18,
     margin: 5,
     textAlign: 'center',
-    width: 300 
+    width: 300
   },
   modalButton: {
     marginTop: 10,
