@@ -34,6 +34,5 @@ Install
 
 Next step
 -----------
- - Fix Bug and improve workflow
  - Refactor
  - Add Redux ?
