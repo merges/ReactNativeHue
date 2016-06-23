@@ -1,6 +1,6 @@
 **HueLovers**
 ---------
-![IosHomeScreen](http://imgur.com/EC74xO5)
+[Imgur](http://i.imgur.com/EC74xO5.png)
 
 This app is develop with React Native.
 
