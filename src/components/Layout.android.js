@@ -79,7 +79,7 @@ var styles = StyleSheet.create({
     flexDirection: 'column'
   },
   header: {
-    backgroundColor: '#E3ECF5',
+    backgroundColor: '#34495e',
     height: 200,
     alignItems: 'center',
     justifyContent: 'center'

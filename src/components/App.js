@@ -39,7 +39,7 @@ var ReactNativeView = React.createClass({
     }).done();
   },
   componentDidMount: function(){
-    // this.connectToBridge();
+    this.connectToBridge();
   },
   changePalette: function(palette) {
        this.refs.BULB0.animate(0, palette.colors[0]);
@@ -148,7 +148,7 @@ var ReactNativeView = React.createClass({
           onRequestClose={() => {this._setModalVisible(false)}}
           >
           <View style={[styles.container]}>
-            <View style={[styles.innterContainer]}>
+            <View style={[styles.innerContainer]}>
               <Bridge
                 onPress={this._setModalVisible.bind(this, false)}>
               </Bridge>
@@ -186,12 +186,15 @@ var styles = StyleSheet.create({
    container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)'
-  },
-  innterContainer: {
-    backgroundColor: '#F8F8F8',
-    height: 150,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     alignItems:'center',
     justifyContent: 'center'
+  },
+  innerContainer: {
+    backgroundColor: '#F8F8F8',
+    height: 400,
+    alignItems:'center',
+    justifyContent: 'center',
+    width: 300
   }
 });

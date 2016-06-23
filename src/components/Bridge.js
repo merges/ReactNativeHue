@@ -57,12 +57,13 @@ var Bridge = React.createClass({
   },
   render() {
     return (
-      <View>
-        <Text numberOfLines={1} style={[styles.buttonText]}>{this.state.found ? 'Please push the button bridge' : 'No bridge found :('  } </Text>
+      <View style={[styles.modalView]}>
+        <Text numberOfLines={3} style={[styles.infoText]}>{this.state.found ? 'Please push the button bridge to synchronize' : 'No bridge found :( \n \n Make sure wifi is enable.'  } </Text>
         <TouchableHighlight
           onPress={this.state.found ? this.connectBridge : this.searchBridge}
           style={[styles.button, styles.modalButton]}
-          underlayColor="#a9d9d4">
+          underlayColor="#34495e"
+          >
           <Text style={[styles.buttonText]}> {this.state.found ? 'Connect'  : 'Search again' }</Text>
         </TouchableHighlight>
       </View>
@@ -74,24 +75,32 @@ module.exports = Bridge;
 
 
 var styles = StyleSheet.create({
+  modalView: {
+    flex: 1,
+    alignItems:'center',
+    justifyContent: 'center'
+  },
   button: {
     padding: 4,
-    borderRadius: 5,
-    flex: 1,
     height: 44,
-    alignSelf: 'stretch',
-    justifyContent: 'center',
     overflow: 'hidden',
-    borderColor: '#a9d9d4',
-    borderWidth: 2
+    backgroundColor: '#34495e'
   },
   buttonText: {
+    color: 'white',
+    fontSize: 18,
+    margin: 5,
+    textAlign: 'center',
+    width: 300
+  },
+  infoText: {
     fontSize: 18,
     margin: 5,
     textAlign: 'center',
     width: 300
   },
   modalButton: {
-    marginTop: 10,
+   position:'absolute',
+   bottom: 0
   },
 });
