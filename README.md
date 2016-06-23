@@ -1,7 +1,7 @@
 **HueLovers**
 ---------
-![Screenshot](http://i.imgur.com/EC74xO5.png =100x20)
 
+<img src="http://i.imgur.com/EC74xO5.pn" width="200" height="200" />
 This app is develop with React Native.
 
 The design is totally ispired by http://palettab.com/, a Chrome extension which uses Google fonts and amazing ColourLovers palettes to inspire you with fresh and clean inspiration every time you hit that new tab button!
