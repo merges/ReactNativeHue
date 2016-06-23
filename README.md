@@ -7,7 +7,7 @@
 
 This app is develop with React Native.
 
-The design is totally ispired by http://palettab.com/, a Chrome extension which uses Google fonts and amazing ColourLovers palettes to inspire you with fresh and clean inspiration every time you hit that new tab button!
+The design is totally inspired by http://palettab.com/, a Chrome extension which uses Google fonts and amazing ColourLovers palettes to inspire you with fresh and clean inspiration every time you hit that new tab button!
 
 compatibility
 -------------
