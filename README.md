@@ -1,8 +1,9 @@
 **HueLovers**
 ---------
-
-<img align="center" src="http://i.imgur.com/EC74xO5.png" width="200"/>
-<img align="center" src="http://i.imgur.com/RWXgpD4.png" width="200"/>
+<p align="center">
+  <img src="http://i.imgur.com/EC74xO5.png" width="200"/>
+  <img src="http://i.imgur.com/RWXgpD4.png" width="200"/>
+</p>
 
 This app is develop with React Native.
 
