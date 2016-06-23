@@ -1,6 +1,6 @@
 **HueLovers**
 ---------
-![Screenshot](http://www.noelshack.com/2016-25-1466688472-homescreenios.png?raw=true)
+![Screenshot](http://imgur.com/EC74xO5?raw=true)
 
 This app is develop with React Native.
 
