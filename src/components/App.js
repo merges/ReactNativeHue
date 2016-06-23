@@ -29,9 +29,11 @@ var ReactNativeView = React.createClass({
           if (this.props.paletteStar) {
             this.setState({palette: this.props.paletteStar});
             this.changePalette(this.props.paletteStar);
+            this.refs['RELOAD']._animate();
           } else {
             this.setState({palette: JSON.parse(value)});
             this.changePalette(this.state.palette);
+            this.refs['RELOAD']._animate();
           }
         } else {
           this.setState({palette: {name:'Giant Goldfish', creator:'By manekineko', colors: ['#69D2E7','#A7DBD8','#E0E4CC','#F38630','#FA6900']}});
@@ -39,7 +41,7 @@ var ReactNativeView = React.createClass({
     }).done();
   },
   componentDidMount: function(){
-    this.connectToBridge();
+    // this.connectToBridge();
   },
   changePalette: function(palette) {
        this.refs.BULB0.animate(0, palette.colors[0]);
@@ -88,9 +90,9 @@ var ReactNativeView = React.createClass({
   },
   loadStar(){
     if (this.props.paletteStar) {
-      console.log(this.props.paletteStar)
       this.setState({palette: this.props.paletteStar});
       this.changePalette(this.props.paletteStar);
+      this.refs['RELOAD']._animate();
     }
   },
   toXY(RGB) {
@@ -120,7 +122,7 @@ var ReactNativeView = React.createClass({
      <View style={styles.body}>
 
        <View style={styles.header}>
-         <Reload palette={this.state.palette} changePalette={this.changePalette} />
+         <Reload ref="RELOAD" palette={this.state.palette} changePalette={this.changePalette} />
        </View>
 
        <View style={styles.content}>
