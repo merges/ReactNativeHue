@@ -20,6 +20,8 @@ Use
 [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
 [Color-convert](https://github.com/Qix-/color-convert)
 [jsHue](https://github.com/blargoner/jshue)
+[colourlovers API](http://www.colourlovers.com/api)
+
 
 Install
 -------
