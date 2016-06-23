@@ -39,7 +39,7 @@ var ReactNativeView = React.createClass({
     }).done();
   },
   componentDidMount: function(){
-    this.connectToBridge();
+    // this.connectToBridge();
   },
   changePalette: function(palette) {
        this.refs.BULB0.animate(0, palette.colors[0]);
@@ -74,8 +74,10 @@ var ReactNativeView = React.createClass({
     const _this = this;
     if (this.state.user) {
       this.state.palette.colors.map(function(item, i) {
-        const HSL = ColorConvert.hex.hsl(item);
-        _this.state.user.setLightState(i+1, { on: true, sat: HSL[1], bri: HSL[2], hue: (HSL[0] * 257)}, function(data) {console.log(data)}, function(err) {console.log(err)});
+        const RGB = ColorConvert.hex.rgb(item);
+        const XY = _this.toXY(RGB);
+        var stateLights = _this.state.user.getLights();
+        _this.state.user.setLightState(i+1, { on: stateLights[i+1].state.on, xy: XY}, function(data) {console.log(data)}, function(err) {console.log(err)});
       })
     }
   },
@@ -89,8 +91,30 @@ var ReactNativeView = React.createClass({
       console.log(this.props.paletteStar)
       this.setState({palette: this.props.paletteStar});
       this.changePalette(this.props.paletteStar);
-  }
-},
+    }
+  },
+  toXY(RGB) {
+    let red = RGB[0];
+    let green = RGB[1];
+    let blue = RGB[2];
+    //Gamma correctie
+    red = (red > 0.04045) ? Math.pow((red + 0.055) / (1.0 + 0.055), 2.4) : (red / 12.92);
+    green = (green > 0.04045) ? Math.pow((green + 0.055) / (1.0 + 0.055), 2.4) : (green / 12.92);
+    blue = (blue > 0.04045) ? Math.pow((blue + 0.055) / (1.0 + 0.055), 2.4) : (blue / 12.92);
+    //Apply wide gamut conversion D65
+    var X = red * 0.664511 + green * 0.154324 + blue * 0.162028;
+    var Y = red * 0.283881 + green * 0.668433 + blue * 0.047685;
+    var Z = red * 0.000088 + green * 0.072310 + blue * 0.986039;
+    var fx = X / (X + Y + Z);
+    var fy = Y / (X + Y + Z);
+    if (isNaN(fx)) {
+      fx = 0.0;
+    }
+    if (isNaN(fy)) {
+      fy = 0.0;
+    }
+    return [fx.toPrecision(4),fy.toPrecision(4)];
+  },
   render: function() {
     return (
      <View style={styles.body}>
@@ -148,7 +172,7 @@ var styles = StyleSheet.create({
   header: {
     alignItems: 'center',
     padding: 60,
-    paddingBottom: 40    
+    paddingBottom: 40
   },
   body: {
     backgroundColor: '#F8F8F8',
