@@ -2,6 +2,7 @@
 ---------
 
 <img src="http://i.imgur.com/EC74xO5.png" width="200"/>
+<img src="http://i.imgur.com/RWXgpD4.png" width="200"/>
 
 This app is develop with React Native.
 
