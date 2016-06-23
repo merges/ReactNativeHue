@@ -2,8 +2,6 @@
 ---------
 ![IosHomeScreen](http://www.noelshack.com/2016-25-1466688472-homescreenios.png)
 
-*Control your Hue Phillips with React Native.*
-
 This app is develop with React Native.
 
 The design is totally ispired by http://palettab.com/, a Chrome extension which uses Google fonts and amazing ColourLovers palettes to inspire you with fresh and clean inspiration every time you hit that new tab button!
