@@ -1,6 +1,6 @@
 **HueLovers**
 ---------
-(http://i.imgur.com/xWCzcwC.jpg)
+![Screenshot](http://i.imgur.com/ebuHuem.png?raw=true)
 
 This app is develop with React Native.
 
