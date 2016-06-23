@@ -3,6 +3,7 @@
 import React from 'react';
 import ReactNative from 'react-native';
 import hueApi from './jshue';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 var {
   Modal,
@@ -58,7 +59,8 @@ var Bridge = React.createClass({
   render() {
     return (
       <View style={[styles.modalView]}>
-        <Text numberOfLines={3} style={[styles.infoText]}>{this.state.found ? 'Please push the button bridge to synchronize' : 'No bridge found :( \n \n Make sure wifi is enable.'  } </Text>
+        {this.state.found ?  <Icon style={[styles.iconMsg]} name="ios-happy" size={120} color="#34495e" /> :  <Icon style={[styles.iconMsg]} name="ios-sad" size={120} color="#34495e" /> }
+        <Text numberOfLines={3} style={[styles.infoText]}>{this.state.found ? 'Please push the button bridge to synchronize' : 'No bridge found  \n \n Make sure wifi is enable'  } </Text>
         <TouchableHighlight
           onPress={this.state.found ? this.connectBridge : this.searchBridge}
           style={[styles.button, styles.modalButton]}
@@ -103,4 +105,7 @@ var styles = StyleSheet.create({
    position:'absolute',
    bottom: 0
   },
+  iconMsg: {
+    marginBottom: 30,
+  }
 });
