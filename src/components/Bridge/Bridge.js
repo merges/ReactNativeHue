@@ -2,7 +2,7 @@
 
 import React from 'react';
 import ReactNative from 'react-native';
-import hueApi from './jshue';
+import hueApi from '../jshue/jshue';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 var {
@@ -15,6 +15,7 @@ var {
   AsyncStorage
 } = ReactNative;
 
+import styles from './Styles'
 
 var Bridge = React.createClass({
   getInitialState() {
@@ -74,38 +75,3 @@ var Bridge = React.createClass({
 });
 
 module.exports = Bridge;
-
-
-var styles = StyleSheet.create({
-  modalView: {
-    flex: 1,
-    alignItems:'center',
-    justifyContent: 'center'
-  },
-  button: {
-    padding: 4,
-    height: 44,
-    overflow: 'hidden',
-    backgroundColor: '#34495e'
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 18,
-    margin: 5,
-    textAlign: 'center',
-    width: 300
-  },
-  infoText: {
-    fontSize: 18,
-    margin: 5,
-    textAlign: 'center',
-    width: 300
-  },
-  modalButton: {
-   position:'absolute',
-   bottom: 0
-  },
-  iconMsg: {
-    marginBottom: 30,
-  }
-});

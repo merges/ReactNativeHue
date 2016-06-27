@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, TouchableHighlight, Text, AppRegistry } from 'react-native';
+import styles from './Styles'
 
 var Palette = React.createClass({
   getInitialState: function() {
@@ -7,7 +8,7 @@ var Palette = React.createClass({
     };
   },
   componentDidMount: function() {
-      
+
   },
   render: function() {
     return (
@@ -33,12 +34,3 @@ var Palette = React.createClass({
 });
 
 module.exports = Palette;
-
-var styles = StyleSheet.create({ 
-  palette: {
-    flexDirection: 'row', 
-    alignItems: 'center', 
-    justifyContent: 'center',
-    padding: 5
-  }
-});

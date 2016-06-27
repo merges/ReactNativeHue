@@ -8,9 +8,10 @@ import {
   Modal,
   DrawerLayoutAndroid
 } from 'react-native';
-import ReactNativeView from './App';
-import Starred from './Starred';
+import ReactNativeView from '../App/App';
+import Starred from '../Starred/Starred';
 import Icon from 'react-native-vector-icons/Ionicons';
+import styles from './Styles'
 
 var ReactNativeHue = React.createClass({
   getInitialState: function() {
@@ -62,39 +63,3 @@ var ReactNativeHue = React.createClass({
 });
 
 AppRegistry.registerComponent('ReactNativeHue', () => ReactNativeHue);
-
-
-var styles = StyleSheet.create({
-  headerIcon: {
-    borderColor: '#f1c40f',
-    borderWidth: 3,
-    borderRadius: 50,
-    width: 75,
-    height:  75,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  layout: {
-    flex: 1,
-    flexDirection: 'column'
-  },
-  header: {
-    backgroundColor: '#34495e',
-    height: 200,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  menuItem: {
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-    flexDirection:'row',
-    paddingLeft: 16,
-    paddingTop: 16
-  },
-  textItem: {
-    fontWeight: 'bold',
-    flex: 1,
-    marginLeft: 16,
-    color: '#455A64'
-  }
-});

@@ -5,8 +5,8 @@ import {
   Text,
   TouchableHighlight
 } from 'react-native';
-
-import Palette from './Palette';
+import styles from './Styles'
+import Palette from '../Palette/Palette';
 
 var StarRow = React.createClass({
   componentDidMount: function() {
@@ -33,11 +33,3 @@ var StarRow = React.createClass({
 });
 
 module.exports = StarRow;
-
-var styles = StyleSheet.create({
-  row: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 120
-  }
-});

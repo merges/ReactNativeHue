@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, TouchableHighlight, Text, AppRegistry, Animated, Easing } from 'react-native';
+import styles from './Styles'
 
 var Bulb = React.createClass({
   getInitialState: function() {
@@ -71,18 +72,3 @@ var Bulb = React.createClass({
 
 
 module.exports = Bulb;
-
-var styles = StyleSheet.create({
-  text: {
-    color: 'white',
-    fontSize: 20,
-    fontWeight: '600'
-  },
-  bulb: {
-    height: 50,
-    width: 50,
-    borderRadius: 5,
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
-});

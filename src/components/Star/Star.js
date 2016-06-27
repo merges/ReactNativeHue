@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet, TouchableHighlight, Text, AppRegistry, Image, Animated, Easing, AsyncStorage } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import _ from 'lodash';
+import styles from './Styles'
 
 var TIMES = 400;
 
@@ -67,10 +68,3 @@ var Star = React.createClass({
 });
 
 module.exports = Star;
-
-var styles = StyleSheet.create({
-  startIcon: {
-    height: 60,
-    width: 50
-  }
-});

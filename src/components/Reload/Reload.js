@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, TouchableHighlight, Text, AppRegistry, Image, Animated, Easing } from 'react-native';
+import styles from './Styles'
 var TIMES = 400;
 var Reload = React.createClass({
   getInitialState: function() {
@@ -71,16 +72,3 @@ var Reload = React.createClass({
 });
 
 module.exports = Reload;
-
-var styles = StyleSheet.create({
-  logo: {
-    height: 50,
-    width: 50,
-  },
-  buttonLogo: {
-    height: 50,
-    width: 50,
-    borderRadius: 25,
-    backgroundColor: '#fff'
-  }
-});

@@ -6,8 +6,8 @@ import {
   AsyncStorage,
   ListView
 } from 'react-native';
-
-import StarRow from './StarRow';
+import styles from './Styles'
+import StarRow from '../StarRow/StarRow';
 
 var Starred = React.createClass({
   getInitialState: function() {
@@ -21,7 +21,7 @@ var Starred = React.createClass({
   },
   loadStar: function() {
     this._refreshData();
-  
+
 },
   _refreshData: function() {
     let stars = [];
@@ -51,7 +51,3 @@ var Starred = React.createClass({
 //<ListView dataSource={this.state.dataSource} renderRow={this._renderRow} renderHeader={this._renderHeader} renderFooter={this._renderFooter}/>
 
 module.exports = Starred;
-
-var styles = StyleSheet.create({
-
-});
